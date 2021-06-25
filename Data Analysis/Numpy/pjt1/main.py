@@ -1,0 +1,85 @@
+# Numpy is a library for helping us work with multidimensional arrays efficiently.
+# Applications: machine learning, plotting, math, representing images.
+
+import numpy as np
+
+print("Creating an n-d arrays:")
+print("\nA:")
+a = np.array([1, 2, 3], dtype="int32")
+print(a)
+print("Number of dimensions: " + str(a.ndim))
+print("Shape: " + str(a.shape))
+print("Elements type: " + str(a.dtype))
+print("Elements size in byte(s): " + str(a.itemsize))
+print("Array size (elements): " + str(a.size))
+print("Array size (bytes): " + str(a.nbytes))
+
+
+print("\n\nB:")
+b = np.array([[1.1, 2, 3.4], [4.1, 5.5, 6.7]])
+print(b)
+print("Number of dimensions: " + str(b.ndim))
+print("Shape: " + str(b.shape))
+print("Elements type: " + str(b.dtype))
+print("Elements size in byte(s): " + str(b.itemsize))
+print("Array size (elements): " + str(b.size))
+print("Array size (bytes): " + str(b.nbytes))
+
+print("\n\nX:")
+x = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]]])
+print(x)
+print("Number of dimensions: " + str(x.ndim))
+print("Shape: " + str(x.shape))
+print("Elements type: " + str(x.dtype))
+print("Elements size in byte(s): " + str(x.itemsize))
+print("Array size (elements): " + str(x.size))
+print("Array size (bytes): " + str(x.nbytes))
+print("x[1, 0, 1] = " + str(x[1, 0, 1]))
+
+
+print("\n\nAccessing elements: [start:end:step, start:end:step, ...]")
+c = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
+print(c)
+print(c[1, 3])
+print(c[0, :])
+print(c[:, 4])
+print(c[0, 0:5:2])
+print(c[0:2:1, 0:5:2])
+
+c = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], dtype="int32")
+print(c)
+print(c[1:3, 0:2])
+
+
+
+print("\n\nInitializing arrays...")
+print("\n...with zeros:")
+print("\n1-d:")
+print(np.zeros(10))
+print("\n...with ones:")
+print("\n2-d:")
+print(np.ones((3, 2), dtype="int32"))
+print("\n...with any number:")
+print("\n3-d:")
+print(np.full((3, 3, 3), 76))
+print("\n...with random floats:")
+print(np.random.rand(3, 3))
+print("\n...with random integers:")
+print(np.random.randint(10, 20, size=(3, 5))) #(start, end, shape)
+print("\n...as a identity matrix:")
+print(np.identity(4, dtype="int32"))
+print("\n...by repeating an existing one:")
+arr = np.array([[1, 2, 3]])
+print(np.repeat(arr, 4, axis=0))
+print("\n...by merging others:")
+mat = np.ones((5, 5), dtype="int32")
+print(mat)
+zeros = np.zeros((3, 3), dtype="int32")
+zeros[1, 1] = 9
+print(zeros)
+mat[1:4, 1:4] = zeros
+print(mat)
+print("\n...as a copy of an existing one:")
+p = np.array([1, 2, 3], dtype="int32")
+q = p.copy()
+print(q)
